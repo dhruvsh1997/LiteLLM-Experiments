@@ -31,7 +31,7 @@ This repository is a learning platform for **LiteLLM**, designed to explore its 
 - Master LiteLLM's unified API approach
 - Compare performance across different model providers
 - Analyze cost-effectiveness of various AI models
-- Explore real-world applications and use cases
+- Explore RAG (Retrieval-Augmented Generation) implementations
 - Develop production-ready AI solutions
 
 ---
@@ -50,51 +50,47 @@ graph TB
         A[Your Application]
         B[Chatbots]
         C[AI Analytics]
-        D[Content Generation]
+        D[RAG Systems]
+        E[Content Generation]
     end
     
     subgraph "LiteLLM Layer"
-        E[LiteLLM Unified API]
-        F[Model Routing]
-        G[Fallback Logic]
-        H[Cost Optimization]
-        I[Response Caching]
+        F[LiteLLM Unified API]
+        G[Model Routing]
+        H[Fallback Logic]
+        I[Cost Optimization]
+        J[Response Caching]
     end
     
     subgraph "AI Model Providers"
-        J[OpenAI GPT-4/3.5]
-        K[Anthropic Claude]
-        L[Google Gemini]
-        M[Groq LLaMA]
-        N[Hugging Face]
-        O[Local Models]
-        P[Azure OpenAI]
-        Q[AWS Bedrock]
+        K[OpenAI GPT-4/3.5]
+        L[Anthropic Claude]
+        M[Google Gemini]
+        N[Groq LLaMA]
+        O[Hugging Face]
+        P[Local Models]
     end
     
-    A --> E
-    B --> E
-    C --> E
-    D --> E
-    
+    A --> F
+    B --> F
+    C --> F
+    D --> F
     E --> F
-    E --> G
-    E --> H
-    E --> I
     
+    F --> G
+    F --> H
+    F --> I
     F --> J
-    F --> K
-    F --> L
-    F --> M
-    F --> N
-    F --> O
-    F --> P
-    F --> Q
     
-    style E fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
-    style F fill:#2196F3,stroke:#1565C0,stroke-width:2px
-    style G fill:#FF9800,stroke:#F57C00,stroke-width:2px
-    style H fill:#9C27B0,stroke:#7B1FA2,stroke-width:2px
+    G --> K
+    G --> L
+    G --> M
+    G --> N
+    G --> O
+    G --> P
+    
+    style F fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
+    style G fill:#2196F3,stroke:#1565C0,stroke-width:2px
 ```
 
 ### Key Benefits of LiteLLM
@@ -114,192 +110,170 @@ graph TB
 ```mermaid
 graph LR
     subgraph "Repository Structure"
-        A[📁 experiments/]
-        B[📁 dairy-farm-ai/]
-        C[📁 huggingface-experiments/]
-        D[📁 fine-tuned-models/]
-        E[📁 cost-analysis/]
-        F[📁 performance-benchmarks/]
-        G[📁 production-examples/]
-        H[📁 utils/]
-        I[📁 docs/]
+        A[📁 Experiment 1: Multi-API]
+        B[📁 Experiment 2: RAGAS]
+        C[📁 Experiment 3: Standard RAG]
+        D[📁 utils/]
+        E[📁 docs/]
     end
     
-    subgraph "Experiment Categories"
-        J[🔬 API-based Models]
-        K[🤗 Local HF Models]
-        L[🎯 Fine-tuned Models]
-        M[💲 Cost Optimization]
-        N[⚡ Performance Testing]
-        O[🏭 Production Scenarios]
+    subgraph "Experiment Types"
+        F[🔬 API Comparison]
+        G[📊 RAG Evaluation]
+        H[💬 Document Q&A]
+        I[🎯 Performance Analysis]
     end
     
-    A --> J
-    B --> J
-    C --> K
-    D --> L
-    E --> M
-    F --> N
-    G --> O
+    A --> F
+    B --> G
+    C --> H
+    D --> I
     
     style A fill:#E3F2FD,stroke:#1976D2
-    style J fill:#FFF3E0,stroke:#F57C00
+    style B fill:#FFF3E0,stroke:#F57C00
+    style C fill:#E8F5E8,stroke:#2E7D32
 ```
 
-### 📂 Directory Structure
+### 📂 Current Experiments
 
 ```
 litellm-learning/
-├── 📁 experiments/
-│   ├── 🧪 dairy-farm-ai/          # Current: Agricultural AI
-│   ├── 🤗 huggingface-local/      # Coming: Local model testing
-│   ├── 🎯 fine-tuned-models/      # Coming: Custom model experiments
-│   ├── 💲 cost-optimization/      # Coming: Cost analysis
-│   └── ⚡ performance-benchmarks/ # Coming: Speed & accuracy tests
-├── 📁 utils/
-│   ├── model_comparison.py        # Model comparison utilities
-│   ├── cost_calculator.py         # Cost analysis tools
-│   └── performance_tracker.py     # Performance monitoring
-├── 📁 docs/
-│   ├── setup-guides/              # Setup instructions
-│   ├── tutorials/                 # Step-by-step guides
-│   └── best-practices/            # LiteLLM best practices
-└── 📄 README.md                   # This file
+├── 🧪 LiteLLM_Experiment1_MultipleAPI_LLM.ipynb     # Multi-provider comparison
+├── 📊 LiteLLM-Experiment2_RAGAS_RainNetwork.ipynb  # RAG evaluation with RAGAS
+├── 💬 LiteLLM-Experiment3_Standard_RAG.ipynb       # Standard RAG implementation
+├── 📁 utils/                                       # Utility scripts
+└── 📄 README.md                                    # This file
 ```
 
 ---
 
 ## 🧪 Current Experiments
 
-### 🚜 Experiment 1: Dairy Farm AI Health Predictor
+### 🚜 Experiment 1: Multi-API LLM Comparison (Dairy Farm AI)
 
 **Objective**: Compare LiteLLM's performance across different providers for agricultural AI applications.
 
-#### 🔄 Experiment Workflow
-
 ```mermaid
 flowchart TD
-    A[🐄 Cow Sensor Data] --> B[📊 Data Preprocessing]
+    A[🐄 Cow Health Data] --> B[📊 Data Processing]
     B --> C{🤖 LiteLLM Router}
     
     C --> D[🔵 OpenAI GPT-4o]
     C --> E[🟢 Groq LLaMA 3.3]
     C --> F[🟡 Google Gemini 1.5]
     
-    D --> G[🏥 Health Diagnosis]
+    D --> G[🏥 Health Analysis]
     E --> G
     F --> G
     
-    D --> H[🥛 Milk Yield Prediction]
-    E --> H
-    F --> H
-    
-    G --> I[📈 Performance Analysis]
-    H --> I
-    
-    I --> J[📊 Results Visualization]
-    J --> K[🎯 Model Recommendation]
+    G --> H[📈 Performance Comparison]
+    H --> I[📊 Results Dashboard]
     
     style C fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
-    style I fill:#2196F3,stroke:#1565C0,stroke-width:2px
-    style K fill:#FF9800,stroke:#F57C00,stroke-width:2px
+    style H fill:#2196F3,stroke:#1565C0,stroke-width:2px
 ```
 
-#### 🔧 System Architecture
+**Key Features**:
+- Multi-provider API testing
+- Cost-performance analysis
+- Agricultural domain application
+- Real-time model comparison
+
+---
+
+### 📊 Experiment 2: RAGAS Evaluation Framework
+
+**Objective**: Implement and evaluate RAG systems using RAGAS (Retrieval-Augmented Generation Assessment) framework.
 
 ```mermaid
-graph TB
-    subgraph "🏗️ Application Layer"
-        A[Google Colab Environment]
-        B[Python Runtime]
-        C[Data Visualization]
-    end
+flowchart TD
+    A[📄 Document Corpus] --> B[🔍 Vector Embedding]
+    B --> C[💾 Vector Database]
     
-    subgraph "🔄 LiteLLM Integration"
-        D[LiteLLM Unified API]
-        E[Model Router]
-        F[Fallback Handler]
-        G[Response Parser]
-    end
+    D[❓ User Query] --> E[🔍 Retrieval System]
+    E --> C
+    C --> F[📋 Retrieved Context]
     
-    subgraph "🔐 Security Layer"
-        H[API Key Management]
-        I[Rate Limiting]
-        J[Error Handling]
-    end
+    F --> G{🤖 LiteLLM Models}
+    D --> G
     
-    subgraph "☁️ Model Providers"
-        K[OpenAI<br/>GPT-4o]
-        L[Groq<br/>LLaMA 3.3 70B]
-        M[Google<br/>Gemini 1.5 Flash]
-    end
+    G --> H[📝 Generated Response]
+    H --> I[📊 RAGAS Evaluation]
     
-    A --> D
-    B --> D
-    D --> E
-    E --> F
-    F --> G
+    I --> J[📈 Quality Metrics]
+    J --> K[🎯 Performance Report]
     
-    H --> D
-    I --> D
-    J --> D
+    style G fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
+    style I fill:#FF9800,stroke:#F57C00,stroke-width:3px
+    style J fill:#9C27B0,stroke:#7B1FA2,stroke-width:2px
+```
+
+**RAGAS Evaluation Metrics**:
+- **Faithfulness**: Response accuracy to retrieved context
+- **Answer Relevancy**: Response relevance to user query
+- **Context Precision**: Relevance of retrieved context
+- **Context Recall**: Completeness of retrieved information
+
+**Key Features**:
+- Automated RAG evaluation
+- Multiple quality metrics
+- Context-aware assessment
+- Model comparison framework
+
+---
+
+### 💬 Experiment 3: Standard RAG Implementation
+
+**Objective**: Build a production-ready RAG system with document Q&A capabilities.
+
+```mermaid
+flowchart TD
+    A[📁 Document Upload] --> B[🔤 Text Extraction]
+    B --> C[✂️ Text Chunking]
+    C --> D[🔍 Embedding Generation]
+    D --> E[💾 Vector Store]
     
-    E --> K
-    E --> L
-    E --> M
+    F[❓ User Question] --> G[🔍 Similarity Search]
+    G --> E
+    E --> H[📋 Top-K Results]
     
-    G --> C
+    H --> I{🤖 LiteLLM}
+    F --> I
     
-    style D fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
+    I --> J[✨ Contextualized Answer]
+    J --> K[👤 User Interface]
+    
+    style I fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
     style E fill:#2196F3,stroke:#1565C0,stroke-width:2px
+    style J fill:#FF9800,stroke:#F57C00,stroke-width:2px
 ```
 
-#### 📊 Data Flow
-
-```mermaid
-sequenceDiagram
-    participant App as 🖥️ Application
-    participant LLM as 🤖 LiteLLM
-    participant OAI as 🔵 OpenAI
-    participant GRQ as 🟢 Groq
-    participant GEM as 🟡 Gemini
-    
-    App->>LLM: Send cow data for analysis
-    
-    par Parallel API Calls
-        LLM->>OAI: Health diagnosis request
-        LLM->>GRQ: Health diagnosis request
-        LLM->>GEM: Health diagnosis request
-    end
-    
-    OAI-->>LLM: Health diagnosis response
-    GRQ-->>LLM: Health diagnosis response
-    GEM-->>LLM: Health diagnosis response
-    
-    par Parallel API Calls
-        LLM->>OAI: Milk yield prediction request
-        LLM->>GRQ: Milk yield prediction request
-        LLM->>GEM: Milk yield prediction request
-    end
-    
-    OAI-->>LLM: Milk yield prediction response
-    GRQ-->>LLM: Milk yield prediction response
-    GEM-->>LLM: Milk yield prediction response
-    
-    LLM->>App: Compiled results with performance metrics
-```
+**Key Features**:
+- Document ingestion pipeline
+- Semantic search capabilities
+- Context-aware responses
+- Interactive Q&A interface
 
 ---
 
 ## 📊 Experiment Results
 
-### 🎯 Performance Comparison
+### 🎯 Multi-API Performance Comparison
 
 | Model | Avg Response Time | Accuracy Score | Cost per 1K Tokens | Reliability |
 |-------|-------------------|----------------|-------------------|-------------|
 | 🔵 **OpenAI GPT-4o** | 1.45s | 95% | $0.015 | 99.9% |
 | 🟢 **Groq LLaMA 3.3** | 0.52s | 92% | $0.002 | 99.5% |
 | 🟡 **Gemini 1.5 Flash** | 0.78s | 94% | $0.001 | 99.7% |
+
+### 📊 RAG System Evaluation
+
+| Metric | Score | Description |
+|--------|-------|-------------|
+| **Faithfulness** | 0.85 | Response accuracy to context |
+| **Answer Relevancy** | 0.78 | Query-response alignment |
+| **Context Precision** | 0.82 | Retrieved context quality |
+| **Context Recall** | 0.75 | Information completeness |
 
 ### 📈 Performance Metrics Dashboard
 
@@ -312,11 +286,12 @@ sequenceDiagram
 │                                                               │
 └───────────────────────────────────────────────────────────────┘
 
-┌─────────────────── Cost Efficiency Analysis ───────────────────┐
+┌─────────────────── RAG Quality Metrics ───────────────────────┐
 │                                                               │
-│  Gemini Flash   ████████████████████████████████████████ $0.001 │
-│  Groq LLaMA 3.3 ████████████████████ $0.002                   │
-│  OpenAI GPT-4o  ████ $0.015                                   │
+│  Faithfulness   ████████████████████████████████████████ 0.85 │
+│  Context Prec.  ████████████████████████████████████████ 0.82 │
+│  Answer Rel.    ████████████████████████████████████ 0.78     │
+│  Context Rec.   ████████████████████████████████ 0.75         │
 │                                                               │
 └───────────────────────────────────────────────────────────────┘
 ```
@@ -331,33 +306,25 @@ sequenceDiagram
 gantt
     title LiteLLM Learning Roadmap
     dateFormat  YYYY-MM-DD
-    section Phase 1: API Models
-    Dairy Farm AI          :done, dairy, 2024-01-01, 2024-01-31
-    Cost Analysis          :active, cost, 2024-02-01, 2024-02-28
-    Performance Benchmarks :perf, 2024-03-01, 2024-03-31
+    section Completed
+    Multi-API Testing      :done, exp1, 2024-01-01, 2024-01-31
+    RAGAS Evaluation       :done, exp2, 2024-02-01, 2024-02-28
+    Standard RAG           :done, exp3, 2024-03-01, 2024-03-31
     
-    section Phase 2: Local Models
-    HuggingFace Integration :hf, 2024-04-01, 2024-04-30
-    Local Model Comparison  :local, 2024-05-01, 2024-05-31
-    
-    section Phase 3: Custom Models
-    Fine-tuning Experiments :finetune, 2024-06-01, 2024-06-30
-    Custom Model Deployment :deploy, 2024-07-01, 2024-07-31
-    
-    section Phase 4: Production
-    Production Scenarios    :prod, 2024-08-01, 2024-08-31
-    Scaling Strategies      :scale, 2024-09-01, 2024-09-30
+    section Upcoming
+    Advanced RAG           :active, exp4, 2024-04-01, 2024-04-30
+    Fine-tuning Tests      :exp5, 2024-05-01, 2024-05-31
+    Production Deployment  :exp6, 2024-06-01, 2024-06-30
 ```
 
 ### 🎯 Upcoming Experiments
 
 | Experiment | Focus Area | Expected Insights |
 |-----------|------------|-------------------|
-| 🤗 **HuggingFace Local Models** | Local deployment efficiency | Cost vs performance trade-offs |
+| 🔧 **Advanced RAG Systems** | Multi-modal RAG, agentic workflows | Complex document processing |
 | 🎯 **Fine-tuned Model Testing** | Custom model integration | Specialized task performance |
-| 💲 **Cost Optimization Suite** | Budget management | Optimal model selection strategies |
-| ⚡ **Performance Benchmarking** | Speed and accuracy | Real-world performance metrics |
-| 🏭 **Production Scenarios** | Scalability testing | Enterprise deployment patterns |
+| 💲 **Cost Optimization Suite** | Budget management strategies | ROI analysis frameworks |
+| 🏭 **Production Scenarios** | Scalability and deployment | Enterprise-ready patterns |
 
 ---
 
@@ -379,10 +346,7 @@ git clone https://github.com/yourusername/litellm-learning.git
 cd litellm-learning
 
 # Install dependencies
-pip install -r requirements.txt
-
-# Or install specific packages
-pip install litellm matplotlib pandas numpy
+pip install litellm ragas langchain chromadb sentence-transformers matplotlib pandas numpy
 ```
 
 ### 🔑 API Key Setup
@@ -404,35 +368,25 @@ export GROQ_API_KEY="your-groq-key"
 export GEMINI_API_KEY="your-gemini-key"
 ```
 
-#### Option 3: `.env` File
+### 🚀 Running Experiments
 
-```env
-OPENAI_API_KEY=your-openai-key
-GROQ_API_KEY=your-groq-key
-GEMINI_API_KEY=your-gemini-key
-```
-
-### 🚀 Running Your First Experiment
-
+#### Experiment 1: Multi-API Testing
 ```python
-# Import the experiment
-from experiments.dairy_farm_ai import DairyFarmPredictor
-
-# Initialize the predictor
-predictor = DairyFarmPredictor()
-
-# Run the experiment
-results = predictor.run_experiment()
-
-# View results
-predictor.display_results(results)
+# Open LiteLLM_Experiment1_MultipleAPI_LLM.ipynb
+# Run all cells to compare different API providers
 ```
 
-### 📊 Google Colab Quick Start
+#### Experiment 2: RAGAS Evaluation
+```python
+# Open LiteLLM-Experiment2_RAGAS_RainNetwork.ipynb
+# Execute RAG evaluation with quality metrics
+```
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yourusername/litellm-learning/blob/main/experiments/dairy_farm_ai/dairy_farm_colab.ipynb)
-
-Click the badge above to open the dairy farm experiment directly in Google Colab!
+#### Experiment 3: Standard RAG
+```python
+# Open LiteLLM-Experiment3_Standard_RAG.ipynb
+# Build and test document Q&A system
+```
 
 ---
 
@@ -442,46 +396,35 @@ Click the badge above to open the dairy farm experiment directly in Google Colab
 
 ```mermaid
 graph LR
-    subgraph "📊 Performance Metrics"
+    subgraph "📊 API Performance"
         A[⏱️ Response Time]
         B[🎯 Accuracy]
         C[💲 Cost Efficiency]
         D[🛡️ Reliability]
-        E[📈 Throughput]
-        F[🔄 Consistency]
     end
     
-    subgraph "📋 Measurement Tools"
-        G[Built-in Timers]
-        H[Accuracy Scoring]
-        I[Cost Calculators]
-        J[Error Tracking]
-        K[Load Testing]
-        L[Response Analysis]
+    subgraph "📊 RAG Quality"
+        E[🎯 Faithfulness]
+        F[🔍 Context Precision]
+        G[📝 Answer Relevancy]
+        H[📋 Context Recall]
     end
-    
-    A --> G
-    B --> H
-    C --> I
-    D --> J
-    E --> K
-    F --> L
     
     style A fill:#4CAF50,stroke:#2E7D32
     style B fill:#2196F3,stroke:#1565C0
-    style C fill:#FF9800,stroke:#F57C00
-    style D fill:#9C27B0,stroke:#7B1FA2
+    style E fill:#FF9800,stroke:#F57C00
+    style F fill:#9C27B0,stroke:#7B1FA2
 ```
 
-### 📊 Benchmarking Framework
+### 📊 Evaluation Framework
 
-Our experiments use a comprehensive benchmarking framework:
+Our experiments use comprehensive evaluation methods:
 
 - **⏱️ Response Time**: Millisecond precision timing
 - **🎯 Accuracy**: Task-specific scoring mechanisms
 - **💲 Cost Analysis**: Real-time cost tracking
-- **🛡️ Error Handling**: Comprehensive error logging
-- **📈 Scalability**: Load testing capabilities
+- **📊 RAGAS Metrics**: Automated RAG quality assessment
+- **🔍 Context Quality**: Retrieval effectiveness measurement
 
 ---
 
@@ -490,46 +433,38 @@ Our experiments use a comprehensive benchmarking framework:
 ### 🔀 Model Routing Strategies
 
 ```python
-# Example: Intelligent model routing
+# Example: Intelligent model routing for RAG
 from litellm import completion
 
-def smart_routing(prompt, task_type="general"):
-    if task_type == "speed_critical":
-        model = "groq/llama-3.3-70b-instruct"
-    elif task_type == "accuracy_critical":
-        model = "openai/gpt-4o"
-    elif task_type == "cost_sensitive":
-        model = "gemini/gemini-1.5-flash"
+def smart_rag_routing(query_type, context_length):
+    if context_length > 8000:
+        model = "openai/gpt-4o"  # Large context handling
+    elif query_type == "analytical":
+        model = "openai/gpt-4o"  # Complex reasoning
+    elif query_type == "factual":
+        model = "groq/llama-3.3-70b-instruct"  # Fast responses
     else:
-        model = "openai/gpt-4o"  # Default
+        model = "gemini/gemini-1.5-flash"  # Cost-effective
     
-    return completion(
-        model=model,
-        messages=[{"role": "user", "content": prompt}],
-        fallbacks=["groq/llama-3.3-70b-instruct", "gemini/gemini-1.5-flash"]
-    )
+    return model
 ```
 
-### 🔧 Custom Configuration
+### 🔧 RAG Configuration
 
 ```python
-# Advanced LiteLLM configuration
-import litellm
+# Advanced RAG system configuration
+from langchain.vectorstores import Chroma
+from langchain.embeddings import OpenAIEmbeddings
 
-# Set custom timeouts
-litellm.request_timeout = 30
+# Vector store setup
+embeddings = OpenAIEmbeddings()
+vectorstore = Chroma(embedding_function=embeddings)
 
-# Enable caching
-litellm.cache = True
-
-# Set fallback models
-litellm.fallbacks = [
-    "groq/llama-3.3-70b-instruct",
-    "gemini/gemini-1.5-flash"
-]
-
-# Custom retry logic
-litellm.num_retries = 3
+# RAG retrieval configuration
+retriever = vectorstore.as_retriever(
+    search_type="similarity",
+    search_kwargs={"k": 5}
+)
 ```
 
 ---
@@ -541,31 +476,23 @@ litellm.num_retries = 3
 | Resource | Description | Link |
 |----------|-------------|------|
 | 📘 **Official LiteLLM Docs** | Complete API reference | [litellm.ai](https://litellm.ai) |
-| 🎓 **Our Tutorial Series** | Step-by-step learning guides | [/docs/tutorials/](./docs/tutorials/) |
+| 📊 **RAGAS Documentation** | RAG evaluation framework | [ragas.io](https://ragas.io) |
+| 🎓 **Our Experiment Notebooks** | Step-by-step implementations | Repository files |
 | 💡 **Best Practices** | Production-ready patterns | [/docs/best-practices/](./docs/best-practices/) |
-| 🔧 **Setup Guides** | Environment configuration | [/docs/setup-guides/](./docs/setup-guides/) |
-
-### 🤝 Community & Support
-
-- **GitHub Issues**: Report bugs and request features
-- **Discussions**: Share insights and ask questions
-- **Discord**: Real-time community chat
-- **Blog**: Latest updates and case studies
 
 ### 🎯 Learning Path
 
 ```mermaid
 graph TD
-    A[🌟 Start Here] --> B[📚 Read Documentation]
-    B --> C[🧪 Run First Experiment]
-    C --> D[🔍 Understand Results]
-    D --> E[⚡ Optimize Performance]
-    E --> F[💲 Analyze Costs]
-    F --> G[🏭 Plan Production]
-    G --> H[🚀 Deploy Solution]
+    A[🌟 Start with Experiment 1] --> B[📊 Multi-API Comparison]
+    B --> C[🔍 Learn RAG Basics]
+    C --> D[📊 RAGAS Evaluation]
+    D --> E[💬 Standard RAG Build]
+    E --> F[🎯 Advanced RAG Techniques]
+    F --> G[🏭 Production Deployment]
     
     style A fill:#4CAF50,stroke:#2E7D32,stroke-width:3px
-    style H fill:#FF9800,stroke:#F57C00,stroke-width:3px
+    style G fill:#FF9800,stroke:#F57C00,stroke-width:3px
 ```
 
 ---
@@ -577,7 +504,7 @@ We welcome contributions! Here's how you can help:
 ### 🎯 Ways to Contribute
 
 - **🧪 Add New Experiments**: Share your LiteLLM use cases
-- **📊 Improve Visualizations**: Better charts and graphs
+- **📊 Improve Evaluations**: Better metrics and analysis
 - **📝 Documentation**: Tutorials and guides
 - **🐛 Bug Reports**: Help us improve
 - **💡 Feature Requests**: Suggest new experiments
@@ -598,31 +525,26 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/litellm-learning&type=Date)](https://star-history.com/#yourusername/litellm-learning&Date)
-
----
-
 ## 🎯 Goals & Vision
 
-### 🎯 Short-term Goals (Q1-Q2 2024)
+### 🎯 Current Status
 
-- ✅ Complete dairy farm AI experiment
-- 🔄 Implement cost analysis framework
-- 📊 Add performance benchmarking suite
-- 🤗 Integrate HuggingFace local models
+- ✅ Multi-API provider comparison
+- ✅ RAGAS evaluation framework
+- ✅ Standard RAG implementation
+- 🔄 Advanced RAG techniques (in progress)
 
-### 🚀 Long-term Vision (2024-2025)
+### 🚀 Vision
 
-- 🏭 Production-ready deployment patterns
-- 🎯 Custom model fine-tuning experiments
-- 📈 Comprehensive performance database
-- 🌍 Community-driven experiment library
+Building a comprehensive learning resource for LiteLLM that covers:
+- API optimization strategies
+- RAG system best practices
+- Production deployment patterns
+- Cost-effective AI solutions
 
 ---
 
-**💡 Remember**: This repository is about learning and experimentation. Every experiment teaches us something new about LiteLLM's capabilities and limitations. Let's explore together!
+**💡 Remember**: This repository is about learning and experimentation. Every experiment teaches us something new about LiteLLM's capabilities in different scenarios. Let's explore together!
 
 ---
 
