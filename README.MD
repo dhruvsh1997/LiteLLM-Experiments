@@ -63,7 +63,7 @@ graph TB
     end
     
     subgraph "AI Model Providers"
-        K[OpenAI GPT-4/3.5]
+        K[OpenAI GPT-4]
         L[Anthropic Claude]
         M[Google Gemini]
         N[Groq LLaMA]
@@ -113,25 +113,32 @@ graph LR
         A[📁 Experiment 1: Multi-API]
         B[📁 Experiment 2: RAGAS]
         C[📁 Experiment 3: Standard RAG]
-        D[📁 utils/]
-        E[📁 docs/]
+        D[📁 Experiment 4: RAGAS with RAG]
+        E[📁 Experiment 5: MLFlow with Corrective RAG]
+        F[📁 utils/]
+        G[📁 docs/]
     end
     
     subgraph "Experiment Types"
-        F[🔬 API Comparison]
-        G[📊 RAG Evaluation]
-        H[💬 Document Q&A]
-        I[🎯 Performance Analysis]
+        H[🔬 API Comparison]
+        I[📊 RAG Evaluation]
+        J[💬 Document Q&A]
+        K[🎯 Performance Analysis]
+        L[🛠️ MLFlow Integration]
     end
     
-    A --> F
-    B --> G
-    C --> H
+    A --> H
+    B --> I
+    C --> J
     D --> I
+    E --> L
+    F --> K
     
     style A fill:#E3F2FD,stroke:#1976D2
     style B fill:#FFF3E0,stroke:#F57C00
     style C fill:#E8F5E8,stroke:#2E7D32
+    style D fill:#FFF3E0,stroke:#F57C00
+    style E fill:#FCE4EC,stroke:#C2185B
 ```
 
 ### 📂 Current Experiments
@@ -141,6 +148,8 @@ litellm-learning/
 ├── 🧪 LiteLLM_Experiment1_MultipleAPI_LLM.ipynb     # Multi-provider comparison
 ├── 📊 LiteLLM-Experiment2_RAGAS_RainNetwork.ipynb  # RAG evaluation with RAGAS
 ├── 💬 LiteLLM-Experiment3_Standard_RAG.ipynb       # Standard RAG implementation
+├── 📊 OutputParser/LiteLLM-Experiment4_RAGAS_with_RAG.ipynb  # RAGAS with RAG implementation
+├── 🛠️ OutputParser/LiteLLM-Experiment5_MLFlow_with_CorrectiveRAG.ipynb  # MLFlow with Corrective RAG
 ├── 📁 utils/                                       # Utility scripts
 └── 📄 README.md                                    # This file
 ```
@@ -256,6 +265,30 @@ flowchart TD
 
 ---
 
+### 📊 Experiment 4: RAGAS with RAG Implementation
+
+**Objective**: Enhance RAG systems with advanced RAGAS evaluation for improved performance analysis.
+
+**Key Features**:
+- Advanced RAG evaluation
+- Enhanced context retrieval
+- Improved response quality metrics
+- Integration with existing RAG systems
+
+---
+
+### 🛠️ Experiment 5: MLFlow with Corrective RAG
+
+**Objective**: Implement a Corrective RAG system integrated with MLFlow for experiment tracking and management.
+
+**Key Features**:
+- MLFlow experiment tracking
+- Corrective RAG for improved accuracy
+- Automated logging of metrics
+- Scalable RAG pipeline
+
+---
+
 ## 📊 Experiment Results
 
 ### 🎯 Multi-API Performance Comparison
@@ -310,10 +343,10 @@ gantt
     Multi-API Testing      :done, exp1, 2024-01-01, 2024-01-31
     RAGAS Evaluation       :done, exp2, 2024-02-01, 2024-02-28
     Standard RAG           :done, exp3, 2024-03-01, 2024-03-31
+    RAGAS with RAG         :done, exp4, 2024-04-01, 2024-04-30
+    MLFlow with Corrective RAG :done, exp5, 2024-05-01, 2024-05-31
     
     section Upcoming
-    Advanced RAG           :active, exp4, 2024-04-01, 2024-04-30
-    Fine-tuning Tests      :exp5, 2024-05-01, 2024-05-31
     Production Deployment  :exp6, 2024-06-01, 2024-06-30
 ```
 
@@ -346,7 +379,7 @@ git clone https://github.com/yourusername/litellm-learning.git
 cd litellm-learning
 
 # Install dependencies
-pip install litellm ragas langchain chromadb sentence-transformers matplotlib pandas numpy
+pip install litellm ragas langchain chromadb sentence-transformers matplotlib pandas numpy mlflow
 ```
 
 ### 🔑 API Key Setup
@@ -386,6 +419,18 @@ export GEMINI_API_KEY="your-gemini-key"
 ```python
 # Open LiteLLM-Experiment3_Standard_RAG.ipynb
 # Build and test document Q&A system
+```
+
+#### Experiment 4: RAGAS with RAG
+```python
+# Open OutputParser/LiteLLM-Experiment4_RAGAS_with_RAG.ipynb
+# Execute enhanced RAG evaluation
+```
+
+#### Experiment 5: MLFlow with Corrective RAG
+```python
+# Open OutputParser/LiteLLM-Experiment5_MLFlow_with_CorrectiveRAG.ipynb
+# Run MLFlow-integrated RAG experiment
 ```
 
 ---
@@ -532,6 +577,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - ✅ Multi-API provider comparison
 - ✅ RAGAS evaluation framework
 - ✅ Standard RAG implementation
+- ✅ RAGAS with RAG implementation
+- ✅ MLFlow with Corrective RAG
 - 🔄 Advanced RAG techniques (in progress)
 
 ### 🚀 Vision
