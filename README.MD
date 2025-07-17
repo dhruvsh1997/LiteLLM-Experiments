@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-## 📋 Table of Contents
+## 📋 Table of Contents:
 
 - [🎯 Project Overview](#project-overview)
 - [🔍 Understanding LiteLLM](#understanding-litellm)
